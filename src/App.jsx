@@ -52,58 +52,69 @@ export default function App() {
   const p240 = chols.length ? ((1 - normalCDF(240, cholMu, cholSig)) * 100).toFixed(1) : "0.0";
 
   return (
-    <div className="min-h-screen bg-white text-black p-4 space-y-4 font-mono">
+    <div className="min-h-screen bg-white text-black p-6 font-mono space-y-6">
       {error && (
-        <div className="text-xs text-red-600 border border-red-300 p-2">
-          {error}
+        <div className="text-sm text-red-700 border border-red-300 px-3 py-2 rounded">
+          Error: {error}
         </div>
       )}
 
 
       {data && (
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 border p-2">
-          <div>
-            <div className="text-xs text-gray-500">N</div>
-            <div>{data.length}</div>
+        <div className="border rounded p-4 space-y-3">
+          <div className="text-sm font-semibold tracking-wide">
+            Overview
           </div>
 
-          <div>
-            <div className="text-xs text-gray-500">Age μ</div>
-            <div>{ageMu.toFixed(1)}</div>
-          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+            <div>
+              <div className="text-xs text-gray-500">Samples</div>
+              <div className="text-lg font-semibold">{data.length}</div>
+            </div>
 
-          <div>
-            <div className="text-xs text-gray-500">Chol μ</div>
-            <div>{cholMu.toFixed(1)}</div>
-          </div>
+            <div>
+              <div className="text-xs text-gray-500">Mean Age</div>
+              <div className="text-lg font-semibold">{ageMu.toFixed(1)}</div>
+            </div>
 
-          <div>
-            <div className="text-xs text-gray-500">P(age &gt; 55)</div>
-            <div>{p55}%</div>
+            <div>
+              <div className="text-xs text-gray-500">Mean Cholesterol</div>
+              <div className="text-lg font-semibold">{cholMu.toFixed(1)}</div>
+            </div>
+
+            <div>
+              <div className="text-xs text-gray-500">Age &gt; 55</div>
+              <div className="text-lg font-semibold">{p55}%</div>
+            </div>
           </div>
         </div>
       )}
 
       {data && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-          <div className="border p-3">
-            <div className="text-sm font-bold">Age Distribution</div>
+          <div className="border rounded p-4 space-y-2">
+            <div className="text-sm font-semibold">Age Distribution</div>
+
             <BellCurve mu={ageMu} sigma={ageSig} />
 
-            <div className="text-xs mt-2 text-gray-600">
-              μ = {ageMu.toFixed(1)} · σ = {ageSig.toFixed(1)}
+            <div className="text-xs text-gray-600">
+              Mean: {ageMu.toFixed(1)} &nbsp; | &nbsp; Std Dev: {ageSig.toFixed(1)}
             </div>
           </div>
 
-          <div className="border p-3">
-            <div className="text-sm font-bold">Cholesterol CDF</div>
+          <div className="border rounded p-4 space-y-2">
+            <div className="text-sm font-semibold">Cholesterol Distribution</div>
+
             <CDFBars mu={cholMu} sigma={cholSig} />
 
-            <div className="text-xs mt-2 text-gray-600">
-              P(chol &lt; 200): {(normalCDF(200, cholMu, cholSig) * 100).toFixed(1)}%
-              <br />
-              P(chol &gt; 240): {p240}%
+            <div className="text-xs text-gray-600 space-y-1">
+              <div>
+                P(chol &lt; 200): {(normalCDF(200, cholMu, cholSig) * 100).toFixed(1)}%
+              </div>
+              <div>
+                P(chol &gt; 240): {p240}%
+              </div>
             </div>
           </div>
 
