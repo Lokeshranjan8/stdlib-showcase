@@ -14,7 +14,6 @@ export function ZTest({ data }) {
 
   return (
     <div className="p-3 border border-gray-400 rounded">
-      <p className="text-sm text-gray-600 mb-1">z-test stdlib/stats-ztest</p>
       <div className="text-lg font-bold mb-2">Z-Test Cholesterol</div>
 
 
@@ -25,19 +24,19 @@ export function ZTest({ data }) {
       </div>
       
 
-      <div className="grid grid-cols-2 gap-2 text-sm mb-3">
+      <div className="grid grid-cols-2 gap-1 text-xs mb-3">
         {[
           ["sample mean", `${mu.toFixed(1)} mg/dl`],["n patients", n],
           ["z-stat", z.toFixed(3)], ["p-value", pVal < 0.000001 ? "<0.000001" : pVal.toFixed(5)],
         ].map(([label, val]) => (
-          <div key={label} className="p-2 bg-gray-50">
-            <div className="text-gray-600 text-xs uppercase">{label}</div>
-            <div className="font-mono font-bold">{val}</div>
+          <div key={label} className="p-3 bg-gray-50 border border-gray-200 rounded-sm">
+            <div className="text-gray-600 text-xs uppercase tracking-wide">{label}</div>
+            <div className="text-sm font-mono font-bold text-gray-900">{val}</div>
           </div>
         ))}
       </div>
 
-      <div className={`text-sm p-2 rounded font-medium ${rejected ? "bg-red-100 border border-red-300 text-red-800" : "bg-green-100 border border-green-300"}`}>
+      <div className={`text-sm p-2 rounded font-medium ${rejected ? "bg-blue-20 border border-blue-200 text-blue-800" : "bg-gray-50 border border-gray-200 text-gray-800"}`}>
         {rejected ? `REJECT H0 (p=${pVal.toFixed(6)} < 0.05)` : `FAIL TO REJECT H0`}
         <br />
         
