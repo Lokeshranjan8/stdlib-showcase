@@ -13,7 +13,8 @@
         "react-dom": "^18.3.1",
         "@stdlib/stats-base-dists-normal-cdf": "^0.2.0",
         "@stdlib/stats-base-dists-normal-pdf": "^0.2.0",
-        "@stdlib/stats-ztest": "^0.2.0"
+        "@stdlib/stats-ztest": "^0.2.0",
+        "@stdlib/stats-ttest2": "^0.2.3"
     },
     "devDependencies": {
         "@vitejs/plugin-react": "^4.3.1",

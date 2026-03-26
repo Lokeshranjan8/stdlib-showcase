@@ -2,6 +2,7 @@ import erfc from '@stdlib/math-base-special-erfc';
 import sqrt from '@stdlib/math-base-special-sqrt';
 import isnan from '@stdlib/math-base-assert-is-nan';
 import exp from '@stdlib/math-base-special-exp';
+import ttest2lib from '@stdlib/stats-ttest2';
 
 var PI    = Math.PI;
 var SQRT2 = sqrt( 2.0 );
@@ -64,4 +65,9 @@ export function zScore( sampleMean, mu0, sigma, n ) {
  
 export function zPValue( z ) {
     return 1.0 - normalCDF( z, 0.0, 1.0 );
+}
+
+
+export function ttest2(x1, x2) {
+  return ttest2lib(x1, x2);
 }
