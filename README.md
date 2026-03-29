@@ -72,6 +72,12 @@ node analysis/normal_cdf.js
 
 # z-test —
 node analysis/ztest.js
+
+# t-test —
+node analysis/ttest.js
+
+# Pcorr-test —
+node analysis/pcorrtst.js
 ```
 
 ---
