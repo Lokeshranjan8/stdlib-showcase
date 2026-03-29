@@ -1,4 +1,4 @@
-Analyzed Heart Disease dataset using stdlib math functions. I used the normal probability density function(`normalPDF`) to visualize age distribution, `normalCDF` to measure cholesterol risk across clinical thresholds, and `z-test` to validate whether the dataset mean cholesterol is significantly higher than the healthy standard of 200 mg/dl, `ttest2` to compare cholesterol between disease and healthy patients and `pcorrtest` to check whether age and cholesterol are related.
+Analyzed Heart Disease dataset using stdlib functions. I used the normal probability density function(`normalPDF`) to visualize age distribution, `normalCDF` to measure cholesterol risk across clinical thresholds, and `z-test` to validate whether the dataset mean cholesterol is significantly higher than the healthy standard of 200 mg/dl, `ttest2` to compare cholesterol between disease and healthy patients and `pcorrtest` to check whether age and cholesterol are related.
 
 ## Age Distribution
 
@@ -29,11 +29,18 @@ Only about **18% of patients** have healthy cholesterol levels (below 200 mg/dl)
   <img width="700" alt="Hypothesis test output" src="https://github.com/user-attachments/assets/5d9f6a07-1312-4baf-8d5b-a3129d221e50" />
 </p>
 
-I used a `z-test` to check whether the dataset's mean cholesterol is significantly higher than the healthy standard of **200 mg/dl**.  
-The test rejected the null hypothesis with a very low p-value, indicating that the difference is statistically significant and not due to chance.
+I used a `z-test` to check whether the dataset's mean cholesterol is significantly higher than the healthy standard of **200 mg/dl**. The test rejected the null hypothesis with a very low p-value, indicating that the difference is statistically significant and not due to chance.
 
+
+<p align="center">
+  <img width="700" height="466" alt="image" src="https://github.com/user-attachments/assets/6f48aefe-a6e9-4859-852f-d4be1921f5ce" />
+</p>
 
 Used `ttest2` to compare cholesterol levels between patients with heart disease and healthy patients. The result did not reject the null hypothesis `(p = 0.136)` meaning cholesterol is not a significant differentiator between the two groups.
+
+<p align="center">
+  <img width="700" height="331" alt="image" src="https://github.com/user-attachments/assets/b00eb3d7-42a3-4746-9a58-0be52760b0cb" />
+</p>
 
 Used `pcorrtest` to check whether age and cholesterol are linearly related in this dataset to see if older patients tend to have higher cholesterol level.
 
