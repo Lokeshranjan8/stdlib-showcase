@@ -3,7 +3,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import * as stats from './Stats.js';
 
-var mean = stats.mean;
+var mean = stats.mean_arr;
 var ttest2_fun = stats.ttest2;
 
 const dir = dirname(fileURLToPath(import.meta.url));

@@ -1,12 +1,12 @@
-import { mean, stdev, zScore, zPValue } from "../analysis/Stats.js";
+import { mean_arr, stdev_arr, zScore, zPValue } from "../analysis/Stats.js";
 
 export function ZTest({ data }) {
   if (!data) return null;
 
   const chol = data.map(r => r.chol).filter(v => !isNaN(v));
   const n = chol.length;
-  const mu = mean(chol);
-  const sig = stdev(chol);
+  const mu = mean_arr(chol);
+  const sig = stdev_arr(chol);
   const mu0 = 200;
   const z = zScore(mu, mu0, sig, n);  
   const pVal = zPValue(z);              

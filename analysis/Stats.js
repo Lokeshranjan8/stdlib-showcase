@@ -1,64 +1,25 @@
-import erfc from '@stdlib/math-base-special-erfc';
-import sqrt from '@stdlib/math-base-special-sqrt';
-import isnan from '@stdlib/math-base-assert-is-nan';
-import exp from '@stdlib/math-base-special-exp';
+import mean      from '@stdlib/stats-strided-mean';
+import stdev     from '@stdlib/stats-strided-stdev';
+import sqrt      from '@stdlib/math-base-special-sqrt';
+import normalCDF from '@stdlib/stats-base-dists-normal-cdf';
+import normalPDF from '@stdlib/stats-base-dists-normal-pdf';
 import ttest2lib from '@stdlib/stats-ttest2';
 import pcorrtesresult from '@stdlib/stats-pcorrtest';
 
-var PI    = Math.PI;
-var SQRT2 = sqrt( 2.0 );
 
-export function mean( arr ) {
-    var s = 0.0;
-    var i;
-    for ( i = 0; i < arr.length; i++ ) {
-        s += arr[ i ];
-    }
-    return s / ( arr.length );
+export function mean_arr( arr ) {
+    var x = new Float64Array( arr );
+    return mean( x.length, x, 1 );
 }
 
-export function stdev( arr ) {
-    var m = mean( arr );
-    var s = 0.0;
-    var i;
-    for ( i = 0; i < arr.length; i++ ) {
-        s += ( arr[ i ] - m ) * ( arr[ i ] - m );
-    }
-    return sqrt( s / ( arr.length - 1 ) );
+export function stdev_arr( arr ) {
+    var x = new Float64Array( arr );
+    return stdev( x.length, 1, x, 1 );
 }
 
-export function normalCDF( x, mu, sigma ) {
-    var denom;
-    var xc;
-    if (
-        isnan( x ) ||
-        isnan( mu ) ||
-        isnan( sigma ) ||
-        sigma < 0.0
-    ) {
-        return NaN;
-    }
-    if ( sigma === 0.0 ) {
-        return ( x < mu ) ? 0.0 : 1.0;
-    }
-    denom = sigma * SQRT2;
-    xc    = x - mu;
-    return 0.5 * erfc( -xc / denom );
-}
 
-export function normalPDF( x, mu, sigma ) {
-    var z;
-    if (
-        isnan( x ) ||
-        isnan( mu ) ||
-        isnan( sigma ) ||
-        sigma <= 0.0
-    ) {
-        return NaN;
-    }
-    z = ( x - mu ) / sigma;
-    return exp( -0.5 * z * z ) / ( sigma * sqrt( 2.0 * PI ) );
-}
+export { normalCDF, normalPDF };
+
 
 export function zScore( sampleMean, mu0, sigma, n ) {
 	return ( sampleMean - mu0 ) / ( sigma / sqrt( n ) );

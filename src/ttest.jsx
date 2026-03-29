@@ -1,4 +1,4 @@
-import { mean, ttest2 } from "../analysis/Stats.js";
+import { mean_arr, ttest2 } from "../analysis/Stats.js";
 
 export function Ttest({ data }) {
   const diseaseGroup = data.filter(r => r.target === 1);
@@ -7,8 +7,8 @@ export function Ttest({ data }) {
   const healthy_chol = healthyGroup.map(r => r.chol).filter(v => !isNaN(v));
   const n1 = disease_chol.length;
   const n2 = healthy_chol.length;
-  const mean1 = mean(disease_chol);
-  const mean2 = mean(healthy_chol);
+  const mean1 = mean_arr(disease_chol);
+  const mean2 = mean_arr(healthy_chol);
 
 
   const result = n1 && n2 ? ttest2(disease_chol, healthy_chol) : {statistic: 0, pValue: 1, rejected: false};

@@ -3,7 +3,7 @@ import { BellCurve, CDFBars } from "./chats.jsx";
 import { ZTest } from "./zst.jsx";
 import { Ttest } from "./ttest.jsx";
 import { PcorrTest } from "./pcorrtst.jsx";
-import { mean, stdev, normalCDF } from "../analysis/Stats.js";
+import { mean_arr, stdev_arr, normalCDF } from "../analysis/Stats.js";
 
 function parseCSV(text) {
   const lines = text.trim().split("\n");
@@ -43,10 +43,10 @@ export default function App() {
 
   const ages = data ? data.map(r => r.age).filter(v => !isNaN(v)) : [];
   const chols = data ? data.map(r => r.chol).filter(v => !isNaN(v)) : [];
-  const ageMu = ages.length ? mean(ages) : 54.4;
-  const ageSig = ages.length > 1 ? stdev(ages) : 9.1;
-  const cholMu = chols.length ? mean(chols) : 246.3;
-  const cholSig = chols.length > 1 ? stdev(chols) : 51.8;
+  const ageMu = ages.length ? mean_arr(ages) : 54.4;
+  const ageSig = ages.length > 1 ? stdev_arr(ages) : 9.1;
+  const cholMu = chols.length ? mean_arr(chols) : 246.3;
+  const cholSig = chols.length > 1 ? stdev_arr(chols) : 51.8;
 
 
 

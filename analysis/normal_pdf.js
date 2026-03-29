@@ -3,8 +3,8 @@ import { resolve,dirname } from 'path';
 import { fileURLToPath } from 'url';
 import normalPDF from '@stdlib/stats-base-dists-normal-pdf';
 import * as stats from './Stats.js';
-var mean  = stats.mean;
-var stdev = stats.stdev;
+var mean  = stats.mean_arr;
+var stdev = stats.stdev_arr;
 
 const dir = dirname(fileURLToPath(import.meta.url));
 
