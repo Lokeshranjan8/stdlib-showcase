@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { BellCurve, CDFBars } from "./chats.jsx";
 import { ZTest } from "./zst.jsx";
+import { Ttest } from "./ttest.jsx";
 import { mean, stdev, normalCDF } from "../analysis/Stats.js";
 
 function parseCSV(text) {
@@ -122,6 +123,7 @@ export default function App() {
       )}
 
       {data && <ZTest data={data} />}
+      {data && <Ttest data={data} />}
 
     </div>
   );
