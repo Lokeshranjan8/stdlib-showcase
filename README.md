@@ -1,4 +1,4 @@
-Analyzed Heart Disease dataset using stdlib math functions. I used the normal probability density function(`normalPDF`) to visualize age distribution, `normalCDF` to measure cholesterol risk across clinical thresholds, and `z-test` to validate whether the dataset mean cholesterol is significantly higher than the healthy standard of 200 mg/dl.
+Analyzed Heart Disease dataset using stdlib math functions. I used the normal probability density function(`normalPDF`) to visualize age distribution, `normalCDF` to measure cholesterol risk across clinical thresholds, and `z-test` to validate whether the dataset mean cholesterol is significantly higher than the healthy standard of 200 mg/dl, `ttest2` to compare cholesterol between disease and healthy patients and `pcorrtest` to check whether age and cholesterol are related.
 
 ## Age Distribution
 
@@ -31,6 +31,12 @@ Only about **18% of patients** have healthy cholesterol levels (below 200 mg/dl)
 
 I used a `z-test` to check whether the dataset's mean cholesterol is significantly higher than the healthy standard of **200 mg/dl**.  
 The test rejected the null hypothesis with a very low p-value, indicating that the difference is statistically significant and not due to chance.
+
+
+Used `ttest2` to compare cholesterol levels between patients with heart disease and healthy patients. The result did not reject the null hypothesis `(p = 0.136)` meaning cholesterol is not a significant differentiator between the two groups.
+
+Used `pcorrtest` to check whether age and cholesterol are linearly related in this dataset to see if older patients tend to have higher cholesterol level.
+
 
 
 ## Dataset
